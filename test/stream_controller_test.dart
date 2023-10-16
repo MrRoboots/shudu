@@ -11,7 +11,7 @@ void main() async {
     final c2 = StreamController(sync: true);
     late StreamController c3;
     void _l() {
-      print('.s.s${c3.hasListener}');
+      print('s3 onListen .s.s  ${c3.hasListener}');
       c3.add('hello world');
       c3.addStream(controller.stream);
     }
@@ -21,10 +21,9 @@ void main() async {
     c2.stream.listen((event) {
       print(' event22: $event');
     });
-    c2.add('hello world');
+    c2.add('hello world2');
     c2.addStream(controller.stream);
-
-    controller.add('lalaaf');
+    controller.add('lalaaf2');
 
     final s = c3.stream.listen((event) {
       print(' event33: $event');
@@ -77,6 +76,6 @@ void main() async {
       print('...');
     });
 
-    await c.close();
+    // await c.close();
   });
 }

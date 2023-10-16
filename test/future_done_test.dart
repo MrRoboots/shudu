@@ -7,14 +7,14 @@ void main() async {
   test('future SynchronousFuture async', () async {
     var index = 0;
     print('start');
-    syncFuture().then((value) {
+    syncFuture().then((value)async {
       expect(index, 3); // 最后执行
-      print(value);
+      print('1 value');
     });
     index++;
     syncFutureNo().then((value) async {
       expect(index, 1); // 确定同步
-      print(value);
+      print('2 value');
       final newValue = await syncFutureNo();
       expect(index, 1); // 说明`then`和`await`一样，都是立即执行，`await`语法是根据`then`实现的
       print('await: $newValue');

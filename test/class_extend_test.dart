@@ -27,3 +27,4 @@ class PrintImpl extends Base {
     print('impl');
   }
 }
+
